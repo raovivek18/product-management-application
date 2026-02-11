@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProductList from './pages/ProductList';
+import Products from './pages/Products';
 import AddProduct from './pages/AddProduct';
 import EditProduct from './pages/EditProduct';
 import Navbar from './components/Navbar';
@@ -12,7 +12,7 @@ function App() {
         <Navbar />
         <main className="container">
           <Routes>
-            <Route path="/" element={<ProductList />} />
+            <Route path="/" element={<Products />} />
             <Route path="/add" element={<AddProduct />} />
             <Route path="/edit/:id" element={<EditProduct />} />
           </Routes>

@@ -22,19 +22,13 @@ const EditProduct = () => {
         fetchProduct();
     }, [id]);
 
-    const handleUpdateProduct = async (data) => {
-        await updateProduct(id, data);
-    };
-
     if (loading) return <div className="container" style={{ textAlign: 'center', padding: '5rem' }}>Loading product details...</div>;
 
     return (
         <div className="container">
             {product && (
                 <ProductForm
-                    title="Edit Product"
                     initialData={product}
-                    onSubmit={handleUpdateProduct}
                 />
             )}
         </div>
