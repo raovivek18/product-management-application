@@ -1,17 +1,27 @@
 .app-container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
-main {
+.main-content {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-bg);
+}
+
+.page-container {
   flex: 1;
+  padding: 2rem 3rem;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(4px);
   }
 
   to {
@@ -20,7 +30,6 @@ main {
   }
 }
 
-.product-list-container,
-.form-container {
-  animation: fadeIn 0.4s ease-out forwards;
+.fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
 }

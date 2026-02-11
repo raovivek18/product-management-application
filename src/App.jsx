@@ -1,22 +1,30 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Products from './pages/Products';
 import AddProduct from './pages/AddProduct';
 import EditProduct from './pages/EditProduct';
-import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
+import Topbar from './components/Topbar';
 import './App.css';
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+
   return (
     <Router>
       <div className="app-container">
-        <Navbar />
-        <main className="container">
-          <Routes>
-            <Route path="/" element={<Products />} />
-            <Route path="/add" element={<AddProduct />} />
-            <Route path="/edit/:id" element={<EditProduct />} />
-          </Routes>
-        </main>
+        <Sidebar />
+        <div className="main-content">
+          <Topbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <main className="page-container fade-in">
+            <Routes>
+              <Route path="/" element={<Products searchTerm={searchTerm} />} />
+              <Route path="/add" element={<AddProduct />} />
+              <Route path="/edit/:id" element={<EditProduct />} />
+              <Route path="*" element={<Products searchTerm={searchTerm} />} />
+            </Routes>
+          </main>
+        </div>
       </div>
     </Router>
   );

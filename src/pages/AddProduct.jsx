@@ -3,9 +3,7 @@ import { createProduct } from '../services/api';
 
 const AddProduct = () => {
     return (
-        <div className="container">
-            <ProductForm />
-        </div>
+        <ProductForm />
     );
 };
 
